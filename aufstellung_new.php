@@ -19,10 +19,10 @@ $rankS3 = "Lt.";
 
 function pdo()
 {
-    $host = "localhost";
-    $name = "admin";
-    $user = "root";
-    $password = "";
+    $host = "10.35.232.23:3306";
+    $name = "k166122_admin_panel";
+    $user = "k166122_admin_panel";
+    $password = "Ufig8?RC2r0booqg";
 
 
     return new PDO("mysql:host=$host;dbname=$name", $user, $password);
