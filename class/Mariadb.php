@@ -3,10 +3,10 @@
 
 class Mariadb
 {
-    private string $host = "localhost";
-    private string $name = "admin";
+    private string $host = "cybrhzrd.de:3307";
+    private string $name = "k166122_admin_panel";
     private string $user = "root";
-    private string $password = "";
+    private string $password = "ZkP92gLcFZrcK8mXtwhnfGE2CJiHD";
     private $pdo;
 
 
@@ -82,10 +82,10 @@ class Mariadb
     {
 
         $host = $this->host;
-        $name = this->name;
+        $name = $this->name;
         $password = $this->password;
         $user = $this->user;
-        require ('../db.php');
+        //require ('../db.php');
 
         if (!$this->pdo) {
             $this->pdo = new PDO("mysql:host=$host;dbname=$name", $this->user, $this->password);

@@ -33,18 +33,15 @@ if (isset($_POST["send"])) {
     if ($checkUserByName) {
         $_SESSION["userID"] = $checkUserByName->getId();
         header('Location:index.php');
+        //echo 'YAY';
     } else {
         echo '<h3>Der Benutzername oder/und das Passwort ist/sind falsch</h3>';
     }
 
 }
 
-
 ?>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/bs-init.js"></script>
 
-
 </body>
-
-

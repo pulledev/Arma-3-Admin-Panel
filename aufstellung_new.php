@@ -1,6 +1,5 @@
 <?php
 //Environment Variables(funktioniert noch nt komplett)
-test !
 $rankSpieß = "Fw.";
 $rankStelvZgfh = "Fw.";
 $rankZgfhr = "Lt.";
@@ -18,10 +17,10 @@ $rankS3 = "Lt.";
 
 function pdo()
 {
-    $host = "localhost";
-    $name = "admin";
+    $host = "cybrhzrd.de:3307";
+    $name = "k166122_admin_panel";
     $user = "root";
-    $password = "";
+    $password = "ZkP92gLcFZrcK8mXtwhnfGE2CJiHD";
 
 
     return new PDO("mysql:host=$host;dbname=$name", $user, $password);
@@ -486,7 +485,7 @@ function spawnSpacer()
     </div>
     <?php
 }
-
+2
 ?>
 
 
