@@ -2,5 +2,5 @@
 spl_autoload_register(
     function ($className) {
     error_log('autoloader:' . $className);
-    include 'class/' . $className . '.php';
+    include __DIR__.'/class/' . $className . '.php';
 });

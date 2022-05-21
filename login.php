@@ -1,7 +1,7 @@
 <?php
-require "init.php";
+require __DIR__."/init.php";
 
-HEAD::printHead("Anmelden - Admin Panel","index.css");
+Head::printHead("Anmelden - Admin Panel","index.css");
 ?>
 
 <body>
