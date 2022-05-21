@@ -11,7 +11,7 @@ class SessionManager
 
     public function __construct(Mariadb $mariadb)
     {
-        session_start();
+        //session_start();
         $this->mariadb = $mariadb;
     }
 

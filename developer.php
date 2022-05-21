@@ -1,5 +1,5 @@
 <?php
-require "init.php";
+require __DIR__."/init.php";
 $id = "true";
 if (!$id) {
     header("Location: login.php");
@@ -17,7 +17,7 @@ if($user->getRank() === 4)
     header("Location: index.php");
 }
 
-HEAD::printHead("Dev Tools - Admin Panel", "developer.css");
+Head::printHead("Dev Tools - Admin Panel", "developer.css");
 
 $id = AdminPanelServices::getInstance()->getSessionManager()->getLoggedInUser();
 if(!$id)

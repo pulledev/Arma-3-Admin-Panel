@@ -2,7 +2,7 @@
 
 class Head
 {
-static function printHead($title, $cssFile)
+public static function printHead($title, $cssFile)
 {
 ?>
     <!DOCTYPE html>

@@ -9,6 +9,10 @@ class Mariadb
     private string $password = "";
     private $pdo;
 
+
+
+
+
     public function testDatabase(): string
     {
         try {
@@ -76,8 +80,15 @@ class Mariadb
 
     function pdo()
     {
+
+        $host = $this->host;
+        $name = this->name;
+        $password = $this->password;
+        $user = $this->user;
+        require ('../db.php');
+
         if (!$this->pdo) {
-            $this->pdo = new PDO("mysql:host=$this->host;dbname=$this->name", $this->user, $this->password);
+            $this->pdo = new PDO("mysql:host=$host;dbname=$name", $this->user, $this->password);
         }
         return $this->pdo;
     }

@@ -1,10 +1,10 @@
 <?php
-require "init.php";
+require __DIR__."/init.php";
 $id = "true";
 if (!$id) {
     header("Location: login.php");
 }
-HEAD::printHead("PHP INFO - Admin Panel", "developer.css");
+Head::printHead("PHP INFO - Admin Panel", "developer.css");
 
 $id = AdminPanelServices::getInstance()->getSessionManager()->getLoggedInUser();
 if(!$id)

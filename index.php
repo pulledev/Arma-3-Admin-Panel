@@ -1,7 +1,7 @@
 <?php
-require "init.php";
+require __DIR__."/init.php";
 $id = "true";
-HEAD::printHead("Home - Admin Panel", "index.css");
+Head::printHead("Home - Admin Panel", "index.css");
 
 $id = AdminPanelServices::getInstance()->getSessionManager()->getLoggedInUser();
 if (!$id) {
