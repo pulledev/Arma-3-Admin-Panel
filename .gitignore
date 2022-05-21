@@ -1,0 +1,10 @@
+#ignore config.ini
+/config.ini
+
+# Javascript node_modules
+node_modules/
+
+# db.php
+/db.php
+
+.idea/
