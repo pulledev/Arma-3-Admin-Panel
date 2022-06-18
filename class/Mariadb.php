@@ -82,10 +82,10 @@ class Mariadb
     {
 
         $host = $this->host;
-        $name = this->name;
+        $name = $this->name;
         $password = $this->password;
         $user = $this->user;
-        require ('../db.php');
+
 
         if (!$this->pdo) {
             $this->pdo = new PDO("mysql:host=$host;dbname=$name", $this->user, $this->password);

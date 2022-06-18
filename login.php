@@ -31,7 +31,8 @@ if (isset($_POST["send"])) {
     $checkUserByName = AdminPanelServices::getInstance()->getMariadb()->findUserByName($username,$password);
 
     if ($checkUserByName) {
-        $_SESSION["userID"] = $checkUserByName->getId();
+        $_POST["userID"] = $checkUserByName->getId();
+        echo $_POST["userID"];
         header('Location:index.php');
     } else {
         echo '<h3>Der Benutzername oder/und das Passwort ist/sind falsch</h3>';

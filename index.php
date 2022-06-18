@@ -1,6 +1,6 @@
 <?php
 require __DIR__."/init.php";
-$id = "true";
+
 Head::printHead("Home - Admin Panel", "index.css");
 
 $id = AdminPanelServices::getInstance()->getSessionManager()->getLoggedInUser();

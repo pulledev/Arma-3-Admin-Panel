@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class SessionManager
 {
     private Mariadb $mariadb;
@@ -21,7 +21,6 @@ class SessionManager
 
     public function getLoggedInUser(): ?User
     {
-
         error_log("getLoggedInUser");
 
         if (isset($_SESSION["userID"])) {
@@ -34,5 +33,4 @@ class SessionManager
         }
         return $this->loggedInUser;
     }
-
 }
