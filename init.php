@@ -4,3 +4,4 @@ spl_autoload_register(
     error_log('autoloader:' . $className);
     include __DIR__.'/class/' . $className . '.php';
 });
+

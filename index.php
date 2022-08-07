@@ -2,8 +2,8 @@
 require __DIR__."/init.php";
 
 Head::printHead("Home - Admin Panel", "index.css");
-
 $id = AdminPanelServices::getInstance()->getSessionManager()->getLoggedInUser();
+
 if (!$id) {
     header("Location: login.php");
 }
@@ -11,8 +11,8 @@ if (!$id) {
 <body>
 <?php
 Navbar::printNavbar();
-?>
 
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">

@@ -1,13 +1,10 @@
 <?php
 require __DIR__."/init.php";
-
+session_start();
 Head::printHead("Anmelden - Admin Panel","index.css");
 ?>
 
 <body>
-
-
-
 
 <div class="d-flex" style="height: 100vh;background: url(&quot;assets/img/arma%20pic%209jgk.jpg&quot;) center / cover repeat;">
     <div class="container-fluid" style="width: 65vw;">
@@ -31,9 +28,9 @@ if (isset($_POST["send"])) {
     $checkUserByName = AdminPanelServices::getInstance()->getMariadb()->findUserByName($username,$password);
 
     if ($checkUserByName) {
-        $_POST["userID"] = $checkUserByName->getId();
-        echo $_POST["userID"];
-        header('Location:index.php');
+        $_SESSION["userID"] = $checkUserByName->getId();
+        //error_log $_Session["userID"];
+        header('Location: index.php');
     } else {
         echo '<h3>Der Benutzername oder/und das Passwort ist/sind falsch</h3>';
     }

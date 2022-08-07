@@ -24,11 +24,10 @@ class SessionManager
         error_log("getLoggedInUser");
 
         if (isset($_SESSION["userID"])) {
-            if (!$this->loggedInUser) {
-                $userID = $_SESSION["userID"];
-                if ($userID) {
-                    $this->loggedInUser = $this->mariadb->findUser($userID);
-                }
+            $userID = $_SESSION["userID"];
+            error_log("fffffffffffffffffgetLoggedInUser_Check_1");
+            if ($userID) {
+                $this->loggedInUser = $this->mariadb->findUser($userID);
             }
         }
         return $this->loggedInUser;
