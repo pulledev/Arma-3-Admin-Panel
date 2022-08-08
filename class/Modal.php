@@ -607,7 +607,7 @@ class Modal
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="#">
+                        <form method="post" action="member.php">
                             <div style="margin-bottom: 16px;"><select class="form-select" name="changeSpecialPostId">
                                     <?php
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
@@ -662,6 +662,7 @@ class Modal
             ?>
             <divclass="alert alert-success" role="alert">Die Url des Users wurde erfolgreich geändert! <a href="member.php">Neuladen</a> </div>
             <?php
+            //header('Location: index.php');
         }
     } //modal-8
 
