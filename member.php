@@ -32,7 +32,7 @@ Navbar::printNavbar();
             <div class="col-md-4" style="margin-bottom: 9px;">
                 <div class="d-grid gap-2">
                     <div class="dropdown d-grid gap-2"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button">Benutzer bearbeiten</button>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#" data-bs-target="#modal-7" data-bs-toggle="modal">Name</a><a class="dropdown-item" href="#" data-bs-target="#modal-3" data-bs-toggle="modal">Rang</a><a class="dropdown-item" href="#" data-bs-target="#modal-4" data-bs-toggle="modal">Link zum Profil</a><a class="dropdown-item" href="#" data-bs-target="#modal-5" data-bs-toggle="modal">Position</a><a class="dropdown-item" href="#" data-bs-target="#modal-6" data-bs-toggle="modal">Dienstposition</a></div>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#" data-bs-target="#modal-7" data-bs-toggle="modal">Name</a><a class="dropdown-item" href="#" data-bs-target="#modal-3" data-bs-toggle="modal">Rang</a><a class="dropdown-item" href="#" data-bs-target="#modal-4" data-bs-toggle="modal">Link zum Profil</a><a class="dropdown-item" href="#" data-bs-target="#modal-5" data-bs-toggle="modal">Position</a><a class="dropdown-item" href="#" data-bs-target="#modal-6" data-bs-toggle="modal">Dienstposition</a><a class="dropdown-item" href="#" data-bs-target="#modal-8" data-bs-toggle="modal">Sonderposition</a></div>
                     </div>
                 </div>
             </div>
@@ -48,13 +48,14 @@ Navbar::printNavbar();
     </div>
 
 <?php
-AdminPanelServices::getInstance()->getModal()->spawnAddUser();
-AdminPanelServices::getInstance()->getModal()->spawnChangeRank();
-AdminPanelServices::getInstance()->getModal()->spawnChangeProfile();
-AdminPanelServices::getInstance()->getModal()->spawnChangeDienstPosition();
-AdminPanelServices::getInstance()->getModal()->spawnChangeName();
-AdminPanelServices::getInstance()->getModal()->spawnChangePosition();
-AdminPanelServices::getInstance()->getModal()->spawnDeleteUser();
+AdminPanelServices::getInstance()->getModal()->spawnAddUser(); //modal-1
+AdminPanelServices::getInstance()->getModal()->spawnChangeRank(); //modal-2
+AdminPanelServices::getInstance()->getModal()->spawnChangeProfile(); //modal-3
+AdminPanelServices::getInstance()->getModal()->spawnChangeDienstPosition(); //modal-4
+AdminPanelServices::getInstance()->getModal()->spawnChangeName(); //modal-5
+AdminPanelServices::getInstance()->getModal()->spawnChangePosition(); //modal-6
+AdminPanelServices::getInstance()->getModal()->spawnDeleteUser(); //modal-7
+AdminPanelServices::getInstance()->getModal()->spawnChangeSpecialPosition(); //modal-8
 ?>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>

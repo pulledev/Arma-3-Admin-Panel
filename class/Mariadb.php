@@ -142,7 +142,7 @@ class Mariadb
     {
         $this->pdo()->query("UPDATE member SET position = ".$position." WHERE id = ".$id);
     }
-    function changeSpecialPost(int $id, int $special_post):void
+    public function changeSpecialPost(int $id, int $special_post):void
     {
         $this->pdo()->query("UPDATE member SET special_post = ".$special_post." WHERE id = ".$id);
     }
