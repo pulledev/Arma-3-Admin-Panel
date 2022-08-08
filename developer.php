@@ -35,6 +35,7 @@ Navbar::printNavbar();
     <div class="col-md-12">
         <h1 class="text-center" style="padding-top: 40px;padding-bottom: 64px;">Developer Tools</h1>
     </div>
+
     <a href="phpinfo.php">PHP INFO</a>
     <h3>Error Codes</h3>
     <table class="table">
@@ -55,7 +56,7 @@ Navbar::printNavbar();
         </tr>
         </tbody>
     </table>
-    
+    <img src="/pictures/dev_tools_logo.png" alt="logo devtools" style="width: 100%; height: 30rem; margin-top: 5rem">
 </div>
 
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
