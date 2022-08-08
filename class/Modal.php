@@ -178,12 +178,12 @@ class Modal
         }
 
 
-    }
+    } //modal-1
 
     public function spawnChangeRank(): void
     {
         ?>
-        <div class="modal fade" role="dialog" tabindex="-1" id="modal-3">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-2">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -293,12 +293,12 @@ class Modal
             <div class="alert alert-success" role="alert">Der Rang des Users wurde erfolgreich geändert!</div>
             <?php
         }
-    }
+    } //modal-2
 
     public function spawnChangeProfile(): void
     {
         ?>
-        <div class="modal fade" role="dialog" tabindex="-1" id="modal-4">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-3">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -349,12 +349,133 @@ class Modal
             <?php
         }
 
-    }
+    } //modal-3
+
+    public function spawnChangeDienstPosition(): void
+    {
+        ?>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-4">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sonderposition ändern</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="#">
+                            <div style="margin-bottom: 16px;"><select class="form-select" name="changePositionId">
+                                    <?php
+                                    $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
+
+                                    if (empty($users)) {
+                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                    } else {
+                                        $id = 0;
+                                        foreach ($users as $user) {
+                                            ?>
+                                            <option
+                                            value="<?php echo $user->getId() ?>" ><?php echo $user->getUsername() ?></option><?php
+                                        }
+                                    }
+                                    ?>
+                                </select><small class="form-text">Wähle hier den Spieler aus</small></div>
+                            <div style="margin-bottom: 16px;">
+                                <select class="form-select" name="changePositionPosition">
+                                    <option disabled selected value>Dienstposten Auswählen!</option>
+                                    <optgroup label="Gruppen">
+                                        <option value="0">Alpha</option>
+                                        <option value="1">Bravo</option>
+                                        <option value="2">Charlie</option>
+                                        <option value="3">Sierra</option>
+                                    </optgroup>
+                                    <optgroup label="Sonderfunktionen">
+                                        <option value="4">Kommandantur</option>
+                                        <option value="5">Reservist</option>
+                                        <option value="6">Zugführer des I. Zuges</option>
+                                    </optgroup>
+                                </select>
+                                <small class="form-text">Wähle hier die neue Position des Spielers ein</small>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
+                                <button class="btn btn-primary" type="submit" name="changePositionSubmit">Hinzufügen
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        if (isset($_POST["changePositionSubmit"])) {
+            $id = $_POST["changePositionId"];
+            $position = $_POST["changePositionPosition"];
+            AdminPanelServices::getInstance()->getMariadb()->changePosition($id, $position);
+            ?>
+            <div class="alert alert-success" role="alert">Die Position des Users wurde erfolgreich geändert!</div>
+            <?php
+        }
+    } //modal-4
+
+    public function spawnChangeName(): void
+    {
+        ?>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-5">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Name ändern</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="#">
+                            <div style="margin-bottom: 16px;"><select class="form-select" name="changeNameId">
+                                    <?php
+                                    $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
+
+                                    if (empty($users)) {
+                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                    } else {
+                                        $id = 0;
+                                        foreach ($users as $user) {
+                                            ?>
+                                            <option
+                                            value="<?php echo $user->getId() ?>" ><?php echo $user->getUsername() ?></option><?php
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                                <small class="form-text">Wähle hier den Namen des Spielers</small>
+                            </div>
+                            <div style="margin-bottom: 16px;"><input class="form-control" type="text" placeholder="Name"
+                                                                     name="changeNameName">
+                                <small class="form-text">Trage
+                                    hier den neuen Name des Spielers ein</small></div>
+                            <div class="modal-footer">
+                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
+                                <button class="btn btn-primary" type="submit" name="changeNameSubmit">Hinzufügen
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        if (isset($_POST["changeNameSubmit"])) {
+            $id = $_POST["changeNameId"];
+            $username = $_POST["changeNameName"];
+            AdminPanelServices::getInstance()->getMariadb()->changeUsername($id, $username);
+            ?>
+            <div class="alert alert-success" role="alert">Die Position des Users wurde erfolgreich geändert!</div>
+            <?php
+        }
+    } //modal-5
 
     public function spawnChangePosition(): void
     {
         ?>
-        <div class="modal fade" role="dialog" tabindex="-1" id="modal-5">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-6">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -420,134 +541,13 @@ class Modal
             <div class="alert alert-success" role="alert">Die Url des Users wurde erfolgreich geändert!</div>
             <?php
         }
-    }
-
-    public function spawnChangeDienstPosition(): void
-    {
-        ?>
-        <div class="modal fade" role="dialog" tabindex="-1" id="modal-6">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Dienstposition ändern</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="#">
-                            <div style="margin-bottom: 16px;"><select class="form-select" name="changePositionId">
-                                    <?php
-                                    $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
-
-                                    if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
-                                    } else {
-                                        $id = 0;
-                                        foreach ($users as $user) {
-                                            ?>
-                                            <option
-                                            value="<?php echo $user->getId() ?>" ><?php echo $user->getUsername() ?></option><?php
-                                        }
-                                    }
-                                    ?>
-                                </select><small class="form-text">Wähle hier den Spielers</small></div>
-                            <div style="margin-bottom: 16px;">
-                                <select class="form-select" name="changePositionPosition">
-                                    <option disabled selected value>Dienstposten Auswählen!</option>
-                                    <optgroup label="Gruppen">
-                                        <option value="0">Alpha</option>
-                                        <option value="1">Bravo</option>
-                                        <option value="2">Charlie</option>
-                                        <option value="3">Sierra</option>
-                                    </optgroup>
-                                    <optgroup label="Sonderfunktionen">
-                                        <option value="4">Kommandantur</option>
-                                        <option value="5">Reservist</option>
-                                        <option value="6">Zugführer des I. Zuges</option>
-                                    </optgroup>
-                                </select>
-                                <small class="form-text">Wähle hier die neue Position des Spielers ein</small>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
-                                <button class="btn btn-primary" type="submit" name="changePositionSubmit">Hinzufügen
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php
-        if (isset($_POST["changePositionSubmit"])) {
-            $id = $_POST["changePositionId"];
-            $position = $_POST["changePositionPosition"];
-            AdminPanelServices::getInstance()->getMariadb()->changePosition($id, $position);
-            ?>
-            <div class="alert alert-success" role="alert">Die Position des Users wurde erfolgreich geändert!</div>
-            <?php
-        }
-    }
-
-    public function spawnChangeName(): void
-    {
-        ?>
-        <div class="modal fade" role="dialog" tabindex="-1" id="modal-7">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Name ändern</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="#">
-                            <div style="margin-bottom: 16px;"><select class="form-select" name="changeNameId">
-                                    <?php
-                                    $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
-
-                                    if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
-                                    } else {
-                                        $id = 0;
-                                        foreach ($users as $user) {
-                                            ?>
-                                            <option
-                                            value="<?php echo $user->getId() ?>" ><?php echo $user->getUsername() ?></option><?php
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <small class="form-text">Wähle hier den Namen des Spielers</small>
-                            </div>
-                            <div style="margin-bottom: 16px;"><input class="form-control" type="text" placeholder="Name"
-                                                                     name="changeNameName">
-                                <small class="form-text">Trage
-                                    hier den neuen Name des Spielers ein</small></div>
-                            <div class="modal-footer">
-                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
-                                <button class="btn btn-primary" type="submit" name="changeNameSubmit">Hinzufügen
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php
-        if (isset($_POST["changeNameSubmit"])) {
-            $id = $_POST["changeNameId"];
-            $username = $_POST["changeNameName"];
-            AdminPanelServices::getInstance()->getMariadb()->changeUsername($id, $username);
-            ?>
-            <div class="alert alert-success" role="alert">Die Position des Users wurde erfolgreich geändert!</div>
-            <?php
-        }
-    }
+    } //modal-6
 
     public function spawnDeleteUser(): void
     {
 
         ?>
-        <div class="modal fade" role="dialog" tabindex="-1" id="modal-8">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-7">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -594,7 +594,76 @@ class Modal
             <div class="alert alert-success" role="alert">Der User wurde gelöscht!</a>
             </div> <?php
         }
-    }
+    } //modal-7
+
+    public function spawnChangeSpecialPosition(): void
+    {
+        ?>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modal-8">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Sonderposition ändern</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="#">
+                            <div style="margin-bottom: 16px;"><select class="form-select" name="changeSpecialPostId">
+                                    <?php
+                                    $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
+
+                                    if (empty($users)) {
+                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                    } else {
+                                        $id = 0;
+                                        foreach ($users as $user) {
+                                            ?>
+                                            <option
+                                            value="<?php echo $user->getId() ?>" ><?php echo $user->getUsername() ?></option><?php
+                                        }
+                                    }
+                                    ?>
+                                </select><small class="form-text">Wähle hier den Name des Spielers ein</small></div>
+
+                            <div style="margin-bottom: 16px;">
+                                <select class="form-select" name="changeSpecialPostPost">
+                                    <option selected value="0">kein Sonderposten</option>
+                                    <optgroup label="S1">
+                                        <option value="1">Kompaniefeldwebel</option>
+                                        <option value="2">Verwaltungs Soldat</option>
+                                    </optgroup>
+                                    <optgroup label="S2">
+                                        <option value="3">Leiter S2</option>
+                                        <option value="4">Medien Soldat</option>
+                                    </optgroup>
+                                    <optgroup label="S3">
+                                        <option value="5">Leiter S3</option>
+                                        <option value="6">S3 Hilfe</option>
+                                    </optgroup>
+                                </select>
+                                <small class="form-text">Wähle hier den Dienstposten des Spielers aus</small>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
+                                <button class="btn btn-primary" type="submit" name="changeSpecialPostSubmit">Hinzufügen
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        if (isset($_POST["changeSpecialPostSubmit"])) {
+            $id = $_POST["changeSpecialPostId"];
+            $post = $_POST["changeSpecialPostPost"];
+            AdminPanelServices::getInstance()->getMariadb()->changeSpecialPost($id, $post);
+            ?>
+            <divclass="alert alert-success" role="alert">Die Url des Users wurde erfolgreich geändert! <a href="member.php">Neuladen</a> </div>
+            <?php
+        }
+    } //modal-8
 
     public function spawnChangeAdminName(): void
     {
