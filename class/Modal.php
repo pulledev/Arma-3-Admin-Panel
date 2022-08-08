@@ -91,7 +91,7 @@ class Modal
                             </div>
                             <div style="margin-bottom: 16px;">
                                 <input class="form-control" type="text" name="addUserSteamId" placeholder="SteamId">
-                                <small class="form-text">Trage hier die SteamId ein</small>
+                                <small class="form-text">Trage hier die steamId64(DEC) ein</small>
                             </div>
                             <div style="margin-bottom: 16px;">
                                 <select class="form-select" name="addUserPost">
@@ -197,7 +197,7 @@ class Modal
                                     <?php
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
                                     if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($users as $user) {
@@ -312,7 +312,7 @@ class Modal
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
 
                                     if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($users as $user) {
@@ -323,7 +323,7 @@ class Modal
                                     }
                                     ?>
                                 </select>
-                                <small class="form-text">Wähle hier den Name des Spielers</small>
+                                <small class="form-text">Wähle hier den Namen des Spielers</small>
                             </div>
                             <div style="margin-bottom: 16px;">
                                 <input class="form-control" type="text" placeholder="Link zum Profil"
@@ -345,7 +345,7 @@ class Modal
             $url = $_POST["changeUrlUrl"];
             AdminPanelServices::getInstance()->getMariadb()->changeUrl($id, $url);
             ?>
-            <div class="alert alert-success" role="alert">Die Url des Users wurde erfolgreich geändert!</div>
+            <div class="alert alert-success" role="alert">Die URL des Users wurde erfolgreich geändert!</div>
             <?php
         }
 
@@ -368,7 +368,7 @@ class Modal
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
 
                                     if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($users as $user) {
@@ -381,7 +381,7 @@ class Modal
                                 </select><small class="form-text">Wähle hier den Spieler aus</small></div>
                             <div style="margin-bottom: 16px;">
                                 <select class="form-select" name="changePositionPosition">
-                                    <option disabled selected value>Dienstposten Auswählen!</option>
+                                    <option disabled selected value>Dienstposten auswählen!</option>
                                     <optgroup label="Gruppen">
                                         <option value="0">Alpha</option>
                                         <option value="1">Bravo</option>
@@ -394,7 +394,7 @@ class Modal
                                         <option value="6">Zugführer des I. Zuges</option>
                                     </optgroup>
                                 </select>
-                                <small class="form-text">Wähle hier die neue Position des Spielers ein</small>
+                                <small class="form-text">Wähle hier die neue Position des Spielers aus</small>
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
@@ -434,7 +434,7 @@ class Modal
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
 
                                     if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($users as $user) {
@@ -445,12 +445,12 @@ class Modal
                                     }
                                     ?>
                                 </select>
-                                <small class="form-text">Wähle hier den Namen des Spielers</small>
+                                <small class="form-text">Wähle hier den Namen des Spielers aus</small>
                             </div>
                             <div style="margin-bottom: 16px;"><input class="form-control" type="text" placeholder="Name"
                                                                      name="changeNameName">
                                 <small class="form-text">Trage
-                                    hier den neuen Name des Spielers ein</small></div>
+                                    hier den neuen Namen des Spielers ein</small></div>
                             <div class="modal-footer">
                                 <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
                                 <button class="btn btn-primary" type="submit" name="changeNameSubmit">Hinzufügen
@@ -489,7 +489,7 @@ class Modal
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
 
                                     if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($users as $user) {
@@ -499,7 +499,7 @@ class Modal
                                         }
                                     }
                                     ?>
-                                </select><small class="form-text">Wähle hier den Name des Spielers ein</small></div>
+                                </select><small class="form-text">Wähle hier den Namen des Spielers ein</small></div>
                             <div style="margin-bottom: 16px;">
                                 <select class="form-select" name="changePostPost">
                                     <option disabled selected value>Position Auswählen!</option>
@@ -538,7 +538,7 @@ class Modal
             $post = $_POST["changePostPost"];
             AdminPanelServices::getInstance()->getMariadb()->changePost($id, $post);
             ?>
-            <div class="alert alert-success" role="alert">Die Url des Users wurde erfolgreich geändert!</div>
+            <div class="alert alert-success" role="alert">Die URL des Users wurde erfolgreich geändert!</div>
             <?php
         }
     } //modal-6
@@ -562,7 +562,7 @@ class Modal
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
 
                                     if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($users as $user) {
@@ -613,7 +613,7 @@ class Modal
                                     $users = AdminPanelServices::getInstance()->getMariadb()->listMember();
 
                                     if (empty($users)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($users as $user) {
@@ -623,7 +623,7 @@ class Modal
                                         }
                                     }
                                     ?>
-                                </select><small class="form-text">Wähle hier den Name des Spielers ein</small></div>
+                                </select><small class="form-text">Wähle hier den Namen des Spielers ein</small></div>
 
                             <div style="margin-bottom: 16px;">
                                 <select class="form-select" name="changeSpecialPostPost">
@@ -660,7 +660,7 @@ class Modal
             $post = $_POST["changeSpecialPostPost"];
             AdminPanelServices::getInstance()->getMariadb()->changeSpecialPost($id, $post);
             ?>
-            <divclass="alert alert-success" role="alert">Die Url des Users wurde erfolgreich geändert! <a href="member.php">Neuladen</a> </div>
+            <divclass="alert alert-success" role="alert">Die URL des Users wurde erfolgreich geändert! <a href="member.php">Neuladen</a> </div>
             <?php
             //header('Location: index.php');
         }
@@ -684,7 +684,7 @@ class Modal
                                     $admins = AdminPanelServices::getInstance()->getMariadb()->listAdminUser();
 
                                     if (empty($admins)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD </h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2 </h4>";
                                     } else {
                                         $id = 0;
                                         foreach ($admins as $admin) {
@@ -699,7 +699,7 @@ class Modal
                             </div>
                             <div style="margin-bottom: 16px;"><input class="form-control" type="text" placeholder="Name"
                                                                      name="changeNameName">
-                                <small class="form-text">Trage hier den neuen Name des Admins ein</small></div>
+                                <small class="form-text">Trage hier den neuen Namen des Admins ein</small></div>
                             <div class="modal-footer">
                                 <button class="btn btn-light" type="button" data-bs-dismiss="modal">Schließen</button>
                                 <button class="btn btn-primary" type="submit" name="changeNameSubmit">Ändern</button>
@@ -738,7 +738,7 @@ class Modal
                                     $admins = AdminPanelServices::getInstance()->getMariadb()->listAdminUser();
 
                                     if (empty($admins)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD</h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2</h4>";
                                     } else {
                                         foreach ($admins as $admin) {
                                             ?>
@@ -802,7 +802,7 @@ class Modal
                                     $admins = AdminPanelServices::getInstance()->getMariadb()->listAdminUser();
 
                                     if (empty($admins)) {
-                                        echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD</h4>";
+                                        echo "<h4 class='text-center'>Fehlercode 2</h4>";
                                     } else {
                                         foreach ($admins as $admin) {
                                             ?>
@@ -830,7 +830,7 @@ class Modal
 
             AdminPanelServices::getInstance()->getMariadb()->deleteAdmin($id);
             ?>
-            <div class="alert alert-success" role="alert">Der Admin wurde gelöscht! RIP</div>
+            <div class="alert alert-success" role="alert">Der Admin wurde gelöscht! RIP :(</div>
             <?php
         }
     }
@@ -890,7 +890,7 @@ class Modal
             } else {
                 AdminPanelServices::getInstance()->getMariadb()->generateAdmin($username, $safe_password, $rank);
                 ?>
-                <div class="alert alert-success" role="alert">Der Admin wurde hinzugefügt!</div>
+                <div class="alert alert-success" role="alert">Der Admin wurde hinzugefügt! :)</div>
                 <?php
             }
         }

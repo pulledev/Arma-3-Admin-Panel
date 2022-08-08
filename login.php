@@ -1,6 +1,6 @@
 <?php
 require __DIR__."/init.php";
-session_start();
+
 Head::printHead("Anmelden - Admin Panel","index.css");
 ?>
 
@@ -15,27 +15,31 @@ Head::printHead("Anmelden - Admin Panel","index.css");
             <input class="form-control" type="password" placeholder="Password" name="password" style="margin-bottom: 3vh;">
             <button class="btn btn-primary" type="submit" style="width: 100%;" name="send">Login</button>
         </form>
+        <?php
+        if (isset($_POST["send"])) {
+            $pdo = AdminPanelServices::getInstance()->getMariadb()->pdo();
+            $rawPassword = $_POST["password"];
+            $username = $_POST["username"];
+            $password = AdminPanelServices::getInstance()->getTools()->hashString($rawPassword);
+
+            $checkUserByName = AdminPanelServices::getInstance()->getMariadb()->findUserByName($username,$password);
+
+            if ($checkUserByName) {
+                $_SESSION["userID"] = $checkUserByName->getId();
+                //error_log $_Session["userID"];
+                header('Location: index.php');
+            } else {
+                echo '<h3>Der Benutzername oder/und das Passwort ist/sind falsch</h3>';
+            }
+
+
+        }
+        ?>
     </div>
-</div><?php
+</div>
+<?php
 
-if (isset($_POST["send"])) {
-    $pdo = AdminPanelServices::getInstance()->getMariadb()->pdo();
 
-    $rawPassword = $_POST["password"];
-    $username = $_POST["username"];
-    $password = AdminPanelServices::getInstance()->getTools()->hashString($rawPassword);
-
-    $checkUserByName = AdminPanelServices::getInstance()->getMariadb()->findUserByName($username,$password);
-
-    if ($checkUserByName) {
-        $_SESSION["userID"] = $checkUserByName->getId();
-        //error_log $_Session["userID"];
-        header('Location: index.php');
-    } else {
-        echo '<h3>Der Benutzername oder/und das Passwort ist/sind falsch</h3>';
-    }
-
-}
 
 
 ?>
