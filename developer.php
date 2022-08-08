@@ -28,6 +28,7 @@ if(!$id)
 ?>
 <body>
 <?php
+
 Navbar::printNavbar();
 
 ?>
@@ -52,7 +53,7 @@ Navbar::printNavbar();
         </tr>
         <tr>
             <td>2</td>
-            <td>sdff</td>
+            <td>Die Website kann nicht auf die Member-Tabelle zugreifen</td>
         </tr>
         </tbody>
     </table>
