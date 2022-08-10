@@ -39,7 +39,7 @@ Navbar::printNavbar();
             <?php
             $admins = AdminPanelServices::getInstance()->getMariadb()->listAdminUser();
             if (empty($admins)) {
-                echo "<h4 class='text-center'>Es gibt zurzeit keine Admins, obwohl das keinen Sinn ergibt xD</h4>";
+                echo "<h4 class='text-center'>Fehlercode 2</h4>";
             } else {
                 $cnt = 0;
                 foreach ($admins as $admin) {
