@@ -3,10 +3,10 @@
 
 class Mariadb
 {
-    private string $host = "10.35.232.23:3306";
+    private string $host = "xxxxxxxxxxxxxx";
     private string $name = "k166122_admin_panel";
     private string $user = "k166122_admin_panel";
-    private string $password = "IZgfTsbyuwq762^?";
+    private string $password = "xxxxxxxxxxxxxx";
     private $pdo;
 
 
