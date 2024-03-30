@@ -1,2 +1,5 @@
 # Admin Panel
-This admin panel for a [gaming community](https://www.9jgkp.de) is designed to make it easier for the [community](https://www.9jgkp.de) to manage its members and personnel files.
+This AdminPanel was designed to organize the users of a German Gaming Group.
+
+__will no longer be developed further :(__
+
